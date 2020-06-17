@@ -47,15 +47,16 @@ Sample Output
 
     output - 
 
-    Floor is getting clean
-    Floor cleaned count is - 60
-    Now batterry is getting charged
-    Floor is getting clean
-    Floor cleaned count is - 120
-    Now batterry is getting charged
-    Floor is getting clean
-    Floor cleaned count is - 150
-
+    hard Floor is getting clean
+    hard Floor cleaned count is - 60
+     Now batterry is getting charged
+     Now batterry fully charged
+    hard Floor is getting clean
+    hard Floor cleaned count is - 120
+     Now batterry is getting charged
+     Now batterry fully charged
+    hard Floor is getting clean
+    hard Floor cleaned count is - 150
 
 
 

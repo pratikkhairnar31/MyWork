@@ -12,12 +12,12 @@ class Robot
 		switch ($floor) {
 			case "hard":
 						$currentStateSeconds=1;
-						$this->test($area,$currentStateSeconds);
+						$this->test($area,$currentStateSeconds,$floor);
 					
 			  break;
 			case "carpet":
 						$currentStateSeconds=2;
-						$this->test($area,$currentStateSeconds);
+						$this->test($area,$currentStateSeconds,$floor);
 						
 			  break;
 			default:
@@ -26,11 +26,11 @@ class Robot
 
 	}
 
-	public function test(int $area,int $currentStateSeconds){
+	public function test(int $area,int $currentStateSeconds,string $floor){
 		ob_implicit_flush(true);
 		@ob_end_flush();
 		
-		echo 'Floor is getting clean'."\n";
+		echo $floor.' Floor is getting clean'."\n";
 		
 		for($cnt=$currentStateSeconds;$cnt<=self::batteryLife;$cnt+=$currentStateSeconds){
 			 
@@ -39,7 +39,7 @@ class Robot
 			$this->cleanedfloorCnt=$this->cleanedfloorCnt+1;
 			
 			if($cnt>=self::batteryLife){
-				echo 'Floor cleaned count is - '.$this->cleanedfloorCnt."\n";
+				echo $floor.' Floor cleaned count is - '.$this->cleanedfloorCnt."\n";
 				$this->batteryflag=0;  // battery getting discharged
 				
 			}else{
@@ -49,17 +49,18 @@ class Robot
 
 			
 			if($this->batteryflag==0){  // after battery discharged functionality
-				echo 'Now batterry is getting charged'."\n";
+				echo ' Now batterry is getting charged'."\n";
 				sleep(self::batteryChargingTime);
 				$this->batteryflag=1;
+				echo ' Now batterry fully charged'."\n";
 				if($this->cleanedfloorCnt<$area){
-				$this->test($area,$currentStateSeconds);
+				$this->test($area,$currentStateSeconds,$floor);
 				}
 			}
 		
 		}
 			if($this->cleanedfloorCnt==$area){
-				echo 'Floor cleaned count is - '.$this->cleanedfloorCnt."\n";
+				echo $floor.' Floor cleaned count is - '.$this->cleanedfloorCnt."\n";
 				exit;
 			}
 			
