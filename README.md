@@ -33,6 +33,7 @@ Requirements
     - PHP CLI
 
 Usage
+
     First Go to Project root directory from Terminal
     Run follwoing command from php CLI 
         robot.php clean --floor=hard --area=150
